@@ -1,9 +1,16 @@
 $(document).ready(function (){
+    $('input[type="submit"]').on("click", function(event) {
+        event.preventDefault();
 
-	$('input[type="submit"]').on("click", function(event) {
-		var first_name = $('input[name="first_name"]').val();
-		console.log(first_name);
+        var first_name = $('#first_name').val();
 
-		event.preventDefault();
-	});
-})
+       /* $.ajax('find.html' , { 
+        	method: 'post',
+        	data: {
+        		'first_name': first_name
+        	}
+    	});*/
+    	$.get('find.html' ,  { 'first_name': first_name});
+    	$.post('find.html' ,  { 'first_name': first_name});
+    });
+});
